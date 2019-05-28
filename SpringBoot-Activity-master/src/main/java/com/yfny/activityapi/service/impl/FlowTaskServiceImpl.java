@@ -85,6 +85,9 @@ public class FlowTaskServiceImpl implements FlowTaskService {
             taskService.setVariables(taskId, variables);
             //完成任务
             taskService.complete(taskId);
+            //添加批注信息-当前批注标识
+            //Authentication.setAuthenticatedUserId(userId);
+            //taskService.addComment(taskId, task.getProcessInstanceId(), "");
             //获取下一个任务
             Task nextTask = taskService.createTaskQuery().processInstanceId(task.getProcessInstanceId()).singleResult();
             //如果还存在下一任务
@@ -166,7 +169,6 @@ public class FlowTaskServiceImpl implements FlowTaskService {
                 resultMap.put("任务名称", task.getName());
                 resultMap.put("任务ID", task.getId());
                 resultMap.put("流程ID", task.getProcessInstanceId());
-                resultMap.put("ProceDefId", task.getProcessDefinitionId());
                 resultList.add(resultMap);
             }
             JSONArray jsonArray = new JSONArray(resultList.toString());

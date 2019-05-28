@@ -1,16 +1,16 @@
 package com.yfny.activityapi.service;
 
+import java.io.InputStream;
+
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.io.InputStream;
 
 /**
  * 流程图相关Service
  * <p>
  * Created  by  jinboYu  on  2019/3/26
  */
-@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class)
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public interface FlowDiagramService {
 
     /**
@@ -20,7 +20,6 @@ public interface FlowDiagramService {
      * @return
      */
     InputStream getResourceDiagramInputStream(String taskId);
-
 
     /**
      * 根据当前流程实例ID获取流程图片流文件

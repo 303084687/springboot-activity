@@ -83,14 +83,15 @@ public class FlowDiagramServiceImpl implements FlowDiagramService {
             ProcessDiagramGenerator processDiagramGenerator = processEngine.getProcessEngineConfiguration().getProcessDiagramGenerator();
             InputStream imageStream = processDiagramGenerator.generateDiagram(bpmnModel, "png", executedActivityIdList, flowIds, "宋体", "微软雅黑", "黑体",
                     null, 2.0);
+
             return imageStream;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
     }
 
-    //获取连接的线
     private List<String> getExecutedFlows(BpmnModel bpmnModel, List<HistoricActivityInstance> historicActivityInstances) {
         // 流转线ID集合
         List<String> flowIdList = new ArrayList<>();
